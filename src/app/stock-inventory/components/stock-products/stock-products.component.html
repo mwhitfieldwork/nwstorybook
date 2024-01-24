@@ -1,0 +1,19 @@
+<div [formGroup]="parent"> 
+    <div formArrayName="stock">
+        <div *ngFor="let item of stocks; let i = index">
+            <div [formGroupName]="i" class="stock-product__content">
+                <div class="stock-product__name">
+                    {{item.value.name}}
+                </div>
+                <input 
+                type="number"
+                step="10"
+                min="10"
+                max="100"
+                formControlName="quantity"
+                />
+                <button type="button" (click)="remove(item, i)">Remove</button>
+            </div>
+        </div>
+    </div>
+</div>

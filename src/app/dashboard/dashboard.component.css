@@ -1,0 +1,258 @@
+:root {
+    --cpsBlue: #061a53;
+    --layoutText:#fff;
+    --detailText:#000;
+    --callOutColor:#ffd22b;
+    --detailSmallText: .7em;
+    --tableHeaderColor: #eaf5f5;
+}
+
+.main-wrapper {
+    background-color:#fff;
+}
+
+.main-wrapper section {
+    width:100%;
+    padding:40px;
+}
+
+.page {
+    width:100%;
+    max-width:1200px;
+    padding:20px 20px 0 20px;
+    margin: 0 auto;
+}
+
+body {
+    background-color:#eaeced;
+    font-family: 'Roboto', sans-serif;
+    font-size: calc(12px + 4 * ((100vw - 300px) / (1600 - 300)));
+}
+
+.graphs {
+    background-color: #f1f5f7;
+}
+
+.bar-graphs {
+    display:flex;
+    justify-content: space-between;
+}
+
+.data-visual-wrapper {
+    width: 47%;
+    margin:10px;
+}
+
+.skills {
+    display: flex;
+    justify-content: space-between;
+    height:85%;
+    font-size: .7em;
+}
+
+.data-visual {
+    display: flex;
+    flex-direction: column;
+}
+
+.data-skills-visual {
+    display:flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.bar-wrapper {
+    width:100%;
+}
+
+.card__skills {
+    flex-direction: column;
+}
+
+.skills-bar {
+    display:flex;
+    background-color: #42a5f5;
+    padding:10px 0 10px 0px;
+}
+
+.skills .bar-wrapper {
+    transform: rotate(180deg) scaleX(-1);
+    text-align: center;
+    /* background-color: #fff; */
+}
+
+.skills .bar-wrapper span{
+    transform: rotate(180deg) scaleX(-1);
+}
+
+.skills .bar-title {
+    position: absolute;
+    bottom: -15px;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: space-between;
+    height: 70%;
+    width: 80%;
+    border-left: 1px solid #eaeced;
+    padding-left: 10px;
+    font-size: .75rem;
+    position: absolute;
+    left: 40px;
+    top: 57px;
+}
+
+
+.verticle-graph {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    flex-direction: column;
+    /* border:1px solid red; */
+}
+
+.verticle-graph-line{
+    display:flex;
+}
+
+.demographic-wrapper {
+    display:flex;
+    justify-content: space-around;
+    margin-bottom:5px;
+    font-size:.8em;
+}
+
+.demographic-wrapper span{
+    width:20%;
+} 
+
+.demographic-wrapper span {
+    width:35%;
+}
+
+.bar-wrapper {
+    font-size:var(--detailSmallText);
+    font-weight:bold;
+    /* background-color: #f3f3f3; */
+    position:relative;
+}
+
+.bar {
+    display:flex;
+    /* width:0; */
+    background-color: red;
+    padding:10px 0 10px 0px;
+}
+
+.bar-percent {
+    position:absolute;
+    left:10px;
+    top:50%;
+    transform:translateY(-50%);
+    font-weight: bold;
+}
+
+.card , .skills{
+    border-radius: 8px;
+    border:1px solid #ccc;
+    box-shadow: none;
+    padding:10px;
+}
+
+
+
+.lists {
+    margin-bottom:100px;   
+    -webkit-column-count: 3;
+    -webkit-column-gap:   0px;
+    -moz-column-count:    3;
+    -moz-column-gap:      0px;
+    column-count:         3;
+    column-gap:           10px;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    grid-template-rows: 300px;
+    padding:20px;
+}
+
+.list {
+    width:95%;
+    background-color: #eaf5f5;
+    padding:10px 5px;
+    margin:10px 0px ;
+    height:auto;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.list ul {
+    padding:0; margin: 0;
+}
+
+.list ul li {
+    list-style-type: none;
+    
+}
+
+.list img {
+    width:200px;
+    height: auto;
+}
+
+.list:nth-child(1) {
+    margin-top: 0px;
+}
+
+.list  h2 {
+    font-size:1.7em;
+}
+
+.graph-line {
+    border-top:1px solid #eaeced;
+    width:100%;
+    line-height:2rem;
+}
+
+@media screen and (max-width:595px){
+    .bar-graphs {
+        flex-wrap: wrap;
+    }
+    .main-wrapper .graphs, .bar-graphs {
+        margin: 0;
+        padding:0;
+    }
+
+    .data-visual-wrapper{
+        width:100%;
+    }
+
+    .card__skills, .card__interests{
+        width:90%;
+    }
+
+    .card__skills {
+        height:200px;
+    }
+
+    .card__skills .bar-title{
+        display:none;
+    }
+
+    .main-wrapper .lists-wrapper {
+        padding:0;
+        margin:0;
+    }
+
+    .lists {
+        -moz-column-count:    1;
+        -webkit-column-count: 1;
+        column-count:         1;
+    }
+
+    .list {
+        width:90%;
+    }
+}

@@ -1,0 +1,76 @@
+<app-nav></app-nav>
+<main class="main-wrapper">
+        <section class="graphs" *ngIf="popularInterests">
+            <mat-tab-group>
+                <mat-tab label="Interests">
+                    <div  class="data__vertical data-visual-wrapper">
+                        <mat-card class="card card__interests">
+                            <mat-card-header>
+                                <mat-card-title>Interests</mat-card-title>
+                            </mat-card-header>
+                                <article *ngFor="let interest of popularInterests" class="data-visual">
+                                    <div class="demographic-wrapper"><span class="bar-name">{{interest.name}}</span><div class="bar-wrapper"><div class="bar" [ngStyle]="{'height' : '30px', 'width' : interest.count + '%'}"><span>{{interest.count}}</span></div></div></div>
+                                </article>
+                                <img mat-card-image src="assets/img/interests.png" alt="interests">
+                                <mat-card-actions>
+                                    <button mat-raised-button color="primary">View Details</button>
+                                </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Skills">
+                    <div  class="data__horizontal data-visual-wrapper ">
+                        <mat-card class="skills card__skills" mat-elevation-z7>
+                            <mat-card-header>
+                                <mat-card-title>Skills</mat-card-title>
+                            </mat-card-header>
+                            <div class="verticle-graph">
+                                <div class="verticle-graph-line">{{maxcount}}<div class="graph-line"></div></div>
+                                <div class="verticle-graph-line">{{midcount}}<div class="graph-line"></div></div>
+                                <div class="verticle-graph-line">{{mincount}}<div class="graph-line"></div></div>
+                            </div> 
+                           <div class="skills-container">
+                                <article *ngFor="let skill of popularSkills" class="data-skills-visual">
+                                    <div class="bar-wrapper"><div class="skills-bar" [ngStyle]="{'height' : skill.count + '%', 'width' : '35px'}"><span></span></div></div>
+                                    <span class="bar-title">{{skill.name}} </span>
+                                </article>
+                            </div>
+                            <mat-card-actions>
+                                <button mat-raised-button color="primary"
+                                [routerLink]="['/skills']">
+                                    View Details
+                                </button>
+                                <button mat-raised-button color="accent" (click)="editSkills()">Edit Details</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </section>
+
+        <section class="lists-wrapper">
+            <div class="page lists">
+                <!-- <mat-card class="lists"> -->
+                    <article *ngFor="let list of doglist" class="list">
+                        <h2>{{list.name}}</h2>
+                        <!-- <img src="{{list.img}}" alt="{{list.img}}"/> -->
+                        <ul>
+                            <li *ngFor="let item of list.list">{{item}}</li>
+                        </ul>
+                    </article>
+                <!-- </mat-card> -->
+            </div>
+        </section>
+        <section>
+            <div>
+                  <div *ngFor="let file of files">
+                  <p>{{ file.name }}</p>
+                  <p>{{ file.size | filesize }}</p>
+                </div>
+                <div *ngFor="let file of mapped">  <!-- map way using conversion pipe as a provider --> 
+                    <p>{{ file.name }}</p>
+                    <p>{{ file.size  }}</p>
+                  </div>
+              </div>
+        </section>
+</main>

@@ -1,0 +1,25 @@
+<section id="navigation">
+  <mat-sidenav-container fullscreen>
+      <mat-sidenav #sidenav>
+        <mat-nav-list (click)="sidenav.close()">
+          <ul>
+              <a mat-list-item routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+              <a mat-list-item routerLink="/products" routerLinkActive="active">Product</a>
+          </ul>
+      </mat-nav-list>
+      </mat-sidenav>
+      <mat-toolbar>
+          <button mat-icon-button (click)="sidenav.open()">
+              <mat-icon>menu</mat-icon>
+          </button>
+          <mat-nav-list>
+              <ul>
+                <a routerLink="/dashboard" routerLinkActive="active" class="dashboard">Dashboard</a>
+                <a routerLink="/products" routerLinkActive="active"  class="product">Product</a>
+              </ul>
+          </mat-nav-list>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+  </mat-sidenav-container>
+</section>
+

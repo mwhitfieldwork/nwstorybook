@@ -1,0 +1,78 @@
+
+<div id="main-wrapper">
+  <form [formGroup]="productForm">
+    <mat-horizontal-stepper class="mat-elevation-z7" labelPosition="bottom">
+      <mat-step [stepControl]="productForm" errorMessage="Wrong Page">
+          <ng-template matStepLabel>Product Details</ng-template>
+          <div class="form-group">
+            <label for="name">Product Name1</label>
+            <input type="text" class="form-control" id="name" formControlName="productname"
+            [ngClass]="{'is-invalid':!productForm.get('productname')?.valid &&
+            productForm.get('productname')?.touched}">
+
+            <span class="invalid-feedback">
+                <span *ngIf="productForm.get('productname').errors?.required">
+                  Please enter a product name.
+                </span>
+            </span>    
+        </div>
+        <div class="form-group">
+            <label for="name">Quantity</label>
+            <input type="text" class="form-control" id="name" formControlName="quantity"
+            [ngClass]="{'is-invalid':!productForm.get('quantity')?.valid &&
+            productForm.get('quantity')?.touched}">
+
+            <span class="invalid-feedback">
+                <span *ngIf="productForm.get('quantity').errors?.required">
+                  Please enter a quantity.
+                </span>
+            </span>  
+        </div>    
+        <div class="stepper-buttons">
+            <button class="btn btn-success" color="primary" matStepperNext>Next</button>
+        </div>    
+      </mat-step>
+
+      <mat-step [stepControl]="productForm">
+        <div class="form-group">
+          <label for="name">Unit Price</label>
+          <input type="text" class="form-control" id="name" formControlName="unitPrice"
+          [ngClass]="{'is-invalid':!productForm.get('unitPrice')?.valid &&
+          productForm.get('unitPrice')?.touched}">
+
+          <span class="invalid-feedback">
+              <span *ngIf="productForm.get('unitPrice').errors?.required">
+                Please enter a unit price.
+              </span>
+          </span>  
+      </div>
+
+      <div class="form-group">
+        <select formControlName="category">
+          <option value="">Select Product</option>
+          <option *ngFor="let category of categories$ | async" 
+          [ngValue]="category.categoryId"
+          >{{category.categoryName}}</option>
+        </select>
+      </div>
+
+      <div class="stepper-buttons">
+        <button class="btn btn-success" 
+        color="primary" 
+        matStepperPrevious>Back</button>
+
+        <button class="btn btn-primary" 
+        (click)="update(productForm)" 
+        *ngIf="isEdit"
+        [disabled]="!productForm.valid"
+        >Update</button>
+
+        <button class="btn btn-success"
+        (click)="create(productForm)" 
+        *ngIf="!isEdit"
+        >Add</button> 
+    </div>  
+      </mat-step>
+    </mat-horizontal-stepper>
+  </form>    
+</div>
